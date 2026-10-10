@@ -1,6 +1,8 @@
 
 # Voltage Protector Device — FSMB Phase 1
 
+![Voltage Protector Circuit Sketch](schematics/sketch.png)
+
 **Author:** Asim Baidya
 **Role applied for:** Embedded System Engineer
 **Project:** FSMB Recruitment 2026 — Phase 1
