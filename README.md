@@ -3,10 +3,10 @@
 
 ![Voltage Protector Circuit Sketch](schematics/sketch.png)
 
-**Author:** Asim Baidya
-**Role applied for:** Embedded System Engineer
-**Project:** FSMB Recruitment 2026 — Phase 1
-**Wokwi project:** see `project_files/wokwi_project_link.txt`
+- **Author:** Asim Baidya
+- **Role applied for:** Embedded System Engineer
+- **Project:** FSMB Recruitment 2026 — Phase 1
+- **Wokwi project:** see `project_files/wokwi_project_link.txt`
 
 A microcontroller-based voltage protector that disconnects an appliance when
 the grid voltage or load current moves outside safe limits, and reconnects
