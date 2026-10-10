@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "author": "Voltage Protector (Arduino Uno)",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -162.6, "left": -442.2, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -76.6, "left": 326.4, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "loadRes",
+      "top": -5.65,
+      "left": 528,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "loadLed",
+      "top": -90,
+      "left": 531.8,
+      "attrs": { "color": "white", "label": "LOAD" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledG",
+      "top": -170,
+      "left": 40,
+      "attrs": { "color": "green", "label": "OK" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resG",
+      "top": -82.45,
+      "left": -9.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledY",
+      "top": -170,
+      "left": 90,
+      "attrs": { "color": "yellow", "label": "WAIT" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resY",
+      "top": -34.45,
+      "left": 38.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledR",
+      "top": -170,
+      "left": 140,
+      "attrs": { "color": "red", "label": "FAULT" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resR",
+      "top": -15.25,
+      "left": 105.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buz",
+      "top": -160.8,
+      "left": 193.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnMode",
+      "top": -713.8,
+      "left": 432,
+      "attrs": { "color": "blue", "label": "MODE" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnUp",
+      "top": -627.4,
+      "left": 432,
+      "attrs": { "color": "green", "label": "UP" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnDown",
+      "top": -541,
+      "left": 432,
+      "attrs": { "color": "yellow", "label": "DOWN" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnPower",
+      "top": -454.6,
+      "left": 432,
+      "attrs": { "color": "red", "label": "POWER" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": 131.2,
+      "left": -32.8,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-potentiometer", "id": "potV", "top": 248.3, "left": -509, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potI", "top": 411.5, "left": -509, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 211.2,
+      "left": -528,
+      "attrs": { "text": "Voltate Simulator" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": 384,
+      "left": -537.6,
+      "attrs": { "text": "Current Simulator" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "relay1:VCC", "red", [ "v-19.3", "h570.2", "v-28.8" ] ],
+    [ "uno:GND.1", "relay1:GND", "black", [ "v-124.8", "h653.1", "v566.8" ] ],
+    [ "uno:2", "relay1:IN", "orange", [ "v-19.2", "h522.5", "v134.4", "h9.6" ] ],
+    [ "uno:5V", "relay1:COM", "red", [ "v-19.3", "h800.6", "v-19.2", "h-57.6", "v-37" ] ],
+    [ "relay1:NO", "loadRes:1", "orange", [ "v36.6", "h212.4", "h38.4" ] ],
+    [ "loadRes:2", "loadLed:A", "orange", [ "v-28.8", "h-193.2" ] ],
+    [ "loadLed:C", "uno:GND.1", "black", [ "h-66.8", "v-230.4", "h-806.7" ] ],
+    [ "uno:8", "resG:1", "green", [ "v76.8", "h259.6" ] ],
+    [ "resG:2", "ledG:A", "green", [] ],
+    [ "ledG:C", "uno:GND.1", "black", [ "h-16.6", "v-150.4", "h-365.1" ] ],
+    [ "uno:9", "resY:1", "yellow", [ "v124.8", "h240.8" ] ],
+    [ "resY:2", "ledY:A", "yellow", [] ],
+    [ "ledY:C", "uno:GND.1", "black", [ "h-9", "v-150.4", "h-422.7" ] ],
+    [ "uno:10", "resR:1", "red", [ "v144", "h394.3" ] ],
+    [ "resR:2", "ledR:A", "red", [] ],
+    [ "ledR:C", "uno:GND.1", "black", [ "h-20.6", "v-150.4", "h-461.1" ] ],
+    [ "uno:7", "buz:1", "purple", [ "v67.2", "h454.8", "v19.2", "h19.2" ] ],
+    [ "buz:2", "uno:GND.1", "black", [ "v9.6", "h38", "v-211.2", "h-595.5" ] ],
+    [ "uno:3", "btnMode:1.l", "blue", [ "v-48", "h570.4", "v-499.2" ] ],
+    [ "btnMode:2.l", "uno:GND.1", "black", [ "v403.4", "h-758.7" ] ],
+    [ "uno:4", "btnUp:1.l", "green", [ "v-67.2", "h608.7", "v-393.6" ] ],
+    [ "btnUp:2.l", "uno:GND.1", "black", [ "v317", "h-758.7" ] ],
+    [ "uno:5", "btnDown:1.l", "yellow", [ "v-86.4", "h637.4", "v-288" ] ],
+    [ "btnDown:2.l", "uno:GND.1", "black", [ "v230.6", "h-758.7" ] ],
+    [ "uno:6", "btnPower:1.l", "red", [ "v-105.6", "h666.1", "v-182.4" ] ],
+    [ "btnPower:2.l", "uno:GND.1", "black", [ "h1.2", "v144.2", "h-759.9" ] ],
+    [ "uno:5V", "potV:VCC", "red", [ "v-19.3", "h-53.8", "v316.8", "h-85.6" ] ],
+    [ "uno:GND.2", "potV:GND", "black", [ "h-5.7", "v316.7", "h-163.2" ] ],
+    [ "uno:A0", "potV:SIG", "green", [ "v38.3", "h-111.4", "v268.8", "h-86" ] ],
+    [ "uno:5V", "potI:VCC", "red", [ "v-19.3", "h-53.8", "v480", "h-95.2" ] ],
+    [ "uno:GND.2", "potI:GND", "black", [ "h-5.7", "v479.9", "h-172.8" ] ],
+    [ "uno:A1", "potI:SIG", "orange", [ "v47.9", "h-130.5", "v422.4", "h-86" ] ],
+    [ "uno:5V", "lcd:VCC", "red", [ "v-19.3", "h-53.8", "v105.5" ] ],
+    [ "uno:GND.2", "lcd:GND", "black", [ "h-5.7", "v76.7" ] ],
+    [ "uno:A4", "lcd:SDA", "purple", [ "v153.5", "h167.4" ] ],
+    [ "uno:A5", "lcd:SCL", "violet", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
